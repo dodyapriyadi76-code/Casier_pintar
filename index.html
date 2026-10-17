@@ -29,7 +29,7 @@ ul.in{margin:0;padding-left:18px}ul.in li{margin:5px 0}
 #lg{position:fixed;inset:0;z-index:50;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;overflow:auto}#lg.off{display:none}#lg .c{width:100%;max-width:380px;padding:26px}#lg h1{margin:10px 0 2px;font-size:22px;text-align:center}#lg p{margin:0 0 16px;text-align:center;color:var(--mu)}#lg label{display:block;margin:10px 0 4px;font-weight:600}#le{color:var(--rd);min-height:20px;margin-top:8px;font-size:13px}.lgo{display:block;margin:auto}.ft{margin-top:18px;color:var(--mu);font-size:12px;text-align:center}
 @media print{body *{visibility:hidden}#md,#md *{visibility:visible}#md{position:absolute;background:none;display:block}.np{display:none!important}}
 </style></head><body>
-<div id="lg"><div class="c"><svg class="lgo" width="72" height="72" viewBox="0 0 72 72" role="img" aria-label="Logo Toko Bintang Sembako"><circle cx="36" cy="36" r="34" fill="var(--ac)"/><path d="M36 13l6.6 14.4 15.7 1.8-11.7 10.7 3.2 15.5L36 47.4 22.2 55.4l3.2-15.5L13.7 29.2l15.7-1.8z" fill="var(--bg)"/></svg><h1>Toko Bintang Sembako</h1><p>Sistem Kasir dan Analitik</p><label for="lu">Nama pengguna</label><input id="lu" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Masukkan nama pengguna"><label for="lp">Kata sandi</label><input id="lp" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Masukkan kata sandi"><div id="le"></div><button class="b p" id="lb" style="width:100%;margin-top:6px">Masuk</button></div><div class="ft">Created by - Dody Apriyadi © 2026</div></div>
+<div id="lg"><div class="c"><svg class="lgo" width="72" height="72" viewBox="0 0 72 72" role="img" aria-label="Logo Toko Bintang Sembako"><circle cx="36" cy="36" r="34" fill="var(--ac)"/><path d="M36 13l6.6 14.4 15.7 1.8-11.7 10.7 3.2 15.5L36 47.4 22.2 55.4l3.2-15.5L13.7 29.2l15.7-1.8z" fill="var(--bg)"/></svg><h1>Toko Bintang Sembako</h1><p>Sistem Kasir dan Analitik</p><label for="lu">Email</label><input id="lu" type="email" autocomplete="username" autocapitalize="off" spellcheck="false" placeholder="Masukkan email"><label for="lp">Kata sandi</label><input id="lp" type="password" autocomplete="current-password" placeholder="Masukkan kata sandi"><div id="le"></div><button class="b p" id="lb" style="width:100%;margin-top:6px">Masuk</button></div><div class="ft">Created by - Dody Apriyadi © 2026</div></div>
 <header><svg width="26" height="26" viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="34" fill="var(--ac)"/><path d="M36 13l6.6 14.4 15.7 1.8-11.7 10.7 3.2 15.5L36 47.4 22.2 55.4l3.2-15.5L13.7 29.2l15.7-1.8z" fill="var(--bg)"/></svg><span class="br">Toko Bintang Sembako</span><nav id="nv"><button data-v="pos" class="on">Kasir</button><button data-v="dash">Dasbor Analitik</button><button data-v="stk">Stok Barang</button><button data-v="his">Riwayat</button></nav><span id="clk"></span><button class="b" id="lo">Keluar</button></header>
 <main>
 <section class="v on" id="pos"><div class="g pos">
@@ -44,7 +44,7 @@ ul.in{margin:0;padding-left:18px}ul.in li{margin:5px 0}
 <div id="hl" style="margin-top:10px"></div></div></div></section>
 <section class="v" id="dash"><div class="row np" style="margin-bottom:12px;max-width:260px"><select id="rg"><option value="1">Hari ini</option><option value="7" selected>7 hari terakhir</option><option value="14">14 hari terakhir</option><option value="30">30 hari terakhir</option></select></div><div class="k" id="kp"></div><div class="g d2" id="ds"></div></section>
 <section class="v" id="stk"><div class="c" style="margin-bottom:14px"><h3>Tambah Barang Baru</h3><div class="row" style="flex-wrap:wrap"><input id="n1" placeholder="Barcode"><input id="n2" placeholder="Nama barang"><input id="n3" placeholder="Kategori"><input id="n4" type="number" placeholder="Harga beli"><input id="n5" type="number" placeholder="Harga jual"><input id="n6" type="number" placeholder="Stok"><button class="b p f0" id="na">Simpan</button></div></div><div class="c sc" id="st"></div></section>
-<section class="v" id="his"><div class="c sc" id="hs"></div><p class="np"><button class="b d" id="rs">Atur ulang ke data contoh</button></p></section>
+<section class="v" id="his"><div class="c sc" id="hs"></div><p class="np" style="display:none"><button class="b d" id="rs">Atur ulang ke data contoh</button></p></section>
 </main>
 <div id="md"><div class="c" id="mc"></div></div><div id="ts"></div>
 <script>
@@ -63,8 +63,8 @@ const it=[...ids].map(id=>{const q=1+Math.floor(R()*3),x=p[id-1];return[id,q,x.b
 const sub=it.reduce((a,i)=>a+i[1]*i[3],0),pr=it.reduce((a,i)=>a+i[1]*(i[3]-i[2]),0);
 s.push({id:'TRX'+String(n++).padStart(5,'0'),t:dt.getTime(),it,sub,disc:0,tax:0,total:sub,profit:pr,pay:['Tunai','Tunai','QRIS','QRIS','Debit','Kartu Kredit'][Math.floor(R()*6)],cash:sub})}}
 s.sort((a,b)=>a.t-b.t);return{p,s,n,h:[]}}
-function load(){try{S=JSON.parse(localStorage.getItem(K))}catch(e){}if(!S||!S.p)S=seed()}
-function save(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}
+function load(){S={p:[],s:[],n:1,h:[]}}
+function save(){window.cloudSave&&window.cloudSave()}
 load();
 function T(){const sub=C.reduce((a,c)=>a+c.q*P(c.id).sell,0),cost=C.reduce((a,c)=>a+c.q*P(c.id).buy,0),mb=$('#mb').checked,disc=Math.min(sub,(+$('#dc').value||0)+(mb?Math.round(sub*.03):0)),tax=$('#tx').checked?Math.round((sub-disc)*.11):0;return{sub,disc,tax,total:sub-disc+tax,profit:sub-disc-cost,mem:mb}}
 function rg(){const q=$('#q').value.trim().toLowerCase();const l=S.p.filter(p=>!q||p.name.toLowerCase().includes(q)||p.bc.includes(q)||p.cat.toLowerCase().includes(q)).slice(0,60);
@@ -112,18 +112,65 @@ $('#q').addEventListener('keydown',e=>{if(e.key!='Enter')return;const v=e.target
 $('#by').onclick=bayar;$('#cl').onclick=reset;$('#hd').onclick=()=>{if(!C.length)return;S.h.push(C);save();reset();toast('Transaksi ditahan')};
 addEventListener('keydown',e=>{if(e.key=='F2'){e.preventDefault();$('#q').focus()}if(e.key=='F9'){e.preventDefault();bayar()}if(e.key=='F8'){e.preventDefault();$('#hd').click()}});
 $('#na').onclick=()=>{const v=i=>$('#n'+i).value.trim(),b=+v(4),h=+v(5);if(!v(1)||!v(2)||!h)return toast('Lengkapi barcode, nama, dan harga jual');if(S.p.some(p=>p.bc==v(1)))return toast('Barcode sudah terdaftar');S.p.push({id:Math.max(...S.p.map(p=>p.id))+1,bc:v(1),name:v(2),cat:v(3)||'Umum',buy:b,sell:h,stock:+v(6)||0,min:10});save();stok();[1,2,3,4,5,6].forEach(i=>$('#n'+i).value='');toast('Barang ditambahkan')};
-$('#rs').onclick=()=>{S=seed();save();his();rg();toast('Data contoh dipulihkan')};
+$('#rs').onclick=()=>toast('Reset dinonaktifkan: data tersimpan di cloud');
 $('#md').onclick=e=>{if(e.target.id=='md')$('#md').classList.remove('on')};
 $('#cam').onclick=async()=>{const v=$('#vid');if(v.srcObject){v.srcObject.getTracks().forEach(t=>t.stop());v.srcObject=null;v.style.display='none';return}
 if(!('BarcodeDetector' in window))return toast('Peramban ini belum mendukung pemindaian kamera');
 try{const d=new BarcodeDetector(),s=await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}});v.srcObject=s;v.style.display='block';await v.play();
 const loop=async()=>{if(!v.srcObject)return;try{const r=await d.detect(v);if(r[0]){const p=S.p.find(x=>x.bc==r[0].rawValue);p?add(p.id):toast('Barcode '+r[0].rawValue+' belum terdaftar');await new Promise(z=>setTimeout(z,1200))}}catch(e){}setTimeout(loop,300)};loop()}catch(e){toast('Kamera tidak dapat diakses')}};
 setInterval(()=>$('#clk').textContent=new Date().toLocaleString('id-ID',{dateStyle:'full',timeStyle:'medium'}),1000);
-let pw='';const pe=$('#lp');
-pe.addEventListener('input',()=>{const v=pe.value;if(v.length>pw.length)pw+=v.replace(/\*/g,'').slice(0,v.length-pw.length);else pw=pw.slice(0,v.length);pe.value='*'.repeat(pw.length)});
-function masuk(){if($('#lu').value.trim().toLowerCase()=='dody apriyadi'&&pw=='882276'){try{sessionStorage.setItem('kp.ok','1')}catch(e){}$('#lg').classList.add('off');$('#le').textContent=''}else $('#le').textContent='Nama pengguna atau kata sandi tidak sesuai.'}
-$('#lb').onclick=masuk;['lu','lp'].forEach(i=>$('#'+i).addEventListener('keydown',e=>{if(e.key=='Enter')masuk()}));
-$('#lo').onclick=()=>{try{sessionStorage.removeItem('kp.ok')}catch(e){}pw='';pe.value='';$('#lu').value='';$('#lg').classList.remove('off')};
-try{if(sessionStorage.getItem('kp.ok'))$('#lg').classList.add('off')}catch(e){}
+$('#lb').onclick=()=>window.fbLogin($('#lu').value.trim(),$('#lp').value);
+['lu','lp'].forEach(i=>$('#'+i).addEventListener('keydown',e=>{if(e.key=='Enter')$('#lb').click()}));
+$('#lo').onclick=()=>window.fbLogout();
 rg();rc();
-</script></body></html>
+</script>
+<script type="module">
+import{initializeApp}from"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import{getAuth,signInWithEmailAndPassword,signOut,onAuthStateChanged}from"https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+import{getFirestore,doc,getDoc,setDoc,collection,query,where,onSnapshot,writeBatch}from"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+const firebaseConfig={apiKey:"AIzaSyBFGfycyJCJxRvETiDrxpiLu3jdQmGi4zk",authDomain:"database-dody.firebaseapp.com",projectId:"database-dody",storageBucket:"database-dody.firebasestorage.app",messagingSenderId:"914851445929",appId:"1:914851445929:web:3a88344b6ec8d7539efdb8"};
+const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app),mainRef=doc(db,'toko','main');
+let unsubs=[],ready=false,synced=new Set();
+const el=i=>document.getElementById(i),key=s=>s.id+'_'+s.t,enc=s=>({...s,it:JSON.stringify(s.it)}),dec=d=>({...d,it:JSON.parse(d.it)}),mainData=x=>({p:x.p,n:x.n,hj:JSON.stringify(x.h||[])});
+function refresh(){const v=document.querySelector('.v.on'),m={pos:rg,dash,stk:stok,his};(m[v&&v.id]||rg)();rc()}
+function fail(e){console.error(e);toast('Gagal menyimpan ke cloud. Periksa koneksi internet.')}
+function stop(){unsubs.forEach(u=>u());unsubs=[];ready=false;synced=new Set()}
+async function start(){
+ el('le').textContent='Memuat data...';el('lb').disabled=true;
+ try{
+  const snap=await getDoc(mainRef);
+  if(!snap.exists()){
+   let init=null;try{init=JSON.parse(localStorage.getItem(K))}catch(e){}
+   if(!init||!init.p)init=seed();
+   await setDoc(mainRef,mainData(init));
+   for(let i=0;i<init.s.length;i+=400){const b=writeBatch(db);init.s.slice(i,i+400).forEach(s=>b.set(doc(db,'trx',key(s)),enc(s)));await b.commit()}
+   try{localStorage.removeItem(K)}catch(e){}
+  }
+  let first=true;
+  unsubs.push(onSnapshot(mainRef,x=>{
+   if(!x.exists()||x.metadata.hasPendingWrites)return;
+   const d=x.data();S.p=d.p;S.n=d.n;S.h=JSON.parse(d.hj||'[]');
+   if(first){first=false;ready=true;el('lg').classList.add('off');el('le').textContent='';el('lb').disabled=false}
+   refresh()}));
+  unsubs.push(onSnapshot(query(collection(db,'trx'),where('t','>=',Date.now()-40*864e5)),q=>{
+   S.s=q.docs.map(x=>dec(x.data())).sort((a,b)=>a.t-b.t);q.docs.forEach(x=>synced.add(x.id));if(ready)refresh()}));
+ }catch(e){console.error(e);el('le').textContent='Gagal memuat data. Periksa koneksi dan pengaturan Firebase.';el('lb').disabled=false}
+}
+window.cloudSave=()=>{
+ if(!ready||!auth.currentUser)return;
+ setDoc(mainRef,mainData(S)).catch(fail);
+ S.s.forEach(s=>{const k=key(s);if(!synced.has(k)){synced.add(k);setDoc(doc(db,'trx',k),enc(s)).catch(e=>{synced.delete(k);fail(e)})}})
+};
+window.fbLogin=async(email,pass)=>{
+ if(!email||!pass){el('le').textContent='Isi email dan kata sandi.';return}
+ el('lb').disabled=true;el('le').textContent='Memeriksa...';
+ try{await signInWithEmailAndPassword(auth,email,pass)}
+ catch(e){el('lb').disabled=false;el('le').textContent=/network/.test(e.code)?'Tidak dapat terhubung ke internet.':/too-many/.test(e.code)?'Terlalu banyak percobaan. Coba lagi nanti.':'Email atau kata sandi tidak sesuai.'}
+};
+window.fbLogout=()=>signOut(auth);
+onAuthStateChanged(auth,u=>{
+ if(u){start();return}
+ stop();S={p:[],s:[],n:1,h:[]};C=[];el('lu').value='';el('lp').value='';el('le').textContent='';el('lb').disabled=false;el('lg').classList.remove('off');refresh()
+});
+</script>
+</body></html>
